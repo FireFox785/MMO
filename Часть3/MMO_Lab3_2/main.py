@@ -1,0 +1,15 @@
+import plotly.express as px
+import pandas as pd
+df = pd.read_csv("Australian Vehicle Prices.csv")
+fig1 = px.histogram(df, x="Price", nbins=50, title="График распределения цен по авто")
+fig1.show()
+fig2 = px.pie(df, names='Car/Suv', title='График распределения типов машин')
+fig2.show()
+fig3 = px.pie(df, names='Transmission', title='График распределения типов трансмиссии')
+fig3.show()
+fig4 = px.pie(df, names='FuelType', title='График распрееления типов топлива')
+fig4.show()
+fig5 = px.scatter(df, x='FuelConsumption', y='Price', color='FuelType',title='Потребление топлива и Цена машины', labels={'FuelConsumption': 'Потребление топлва (Л/100км)'})
+fig5.show()
+fig6 = px.scatter(df, x='Engine', y='Price', color='Brand',title='Ёмкость двигателя и Цена машины', labels={'Engine': 'Ёмкость двигателя (Л или кВ)'})
+fig6.show()
